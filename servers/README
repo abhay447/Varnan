@@ -1,3 +1,4 @@
+Install LAMP on  your system.
 Install mysqldb module for python by typing :sudo apt-get install python-MySQLdb
 Open mysql via terminal and create a database (preferably use the name varnan).Inside this database create a table reports with the following description:
 +-------------+-----------+------+-----+-------------------+----------------+
@@ -11,7 +12,8 @@ Open mysql via terminal and create a database (preferably use the name varnan).I
 | FORWARDEDTO | char(120) | YES  |     | NULL              |                |
 | DATETIMEID  | timestamp | NO   |     | CURRENT_TIMESTAMP |                |
 +-------------+-----------+------+-----+-------------------+----------------+
-Change the value of the username,database and password in the file database.py to the configuration that suits your system.
+Change the value of the username,database and password in the file database.py and viewer.php to the configuration that suits your system.
 Start the upload script by typing : python upload.py 
 Start the task allocation script by typing: python allocate.py
 Start the ftp server by going in the images folder(cd images) and type: python -m SimpleHTTPServer 8070
+Put the file viewer.php in the appropriate LAMP folder(/var/www/) and use view via your browser to track the complaints.
