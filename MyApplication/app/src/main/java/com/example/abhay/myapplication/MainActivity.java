@@ -127,7 +127,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             }
         });
             String path = Environment.getExternalStorageDirectory().toString();
-            HttpPost post = new HttpPost("http://5.175.131.243:8080/");
+            HttpPost post = new HttpPost("http://serverip:8080/");
             HttpClient client = new DefaultHttpClient();
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();
             builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
