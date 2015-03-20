@@ -1,6 +1,9 @@
-Install LAMP on  your system.
-Install mysqldb module for python by typing :sudo apt-get install python-MySQLdb
-Open mysql via terminal and create a database (preferably use the name varnan).Inside this database create a table reports with the following description:
+1.Install LAMP on  your system.
+From:https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu
+
+2.Install mysqldb module for python by typing :sudo apt-get install python-MySQLdb
+
+3.Open mysql via terminal and create a database (preferably use the name varnan).Inside this database create a table REPORTS with the following description:
 +-------------+-----------+------+-----+-------------------+----------------+
 | Field       | Type      | Null | Key | Default           | Extra          |
 +-------------+-----------+------+-----+-------------------+----------------+
@@ -12,8 +15,33 @@ Open mysql via terminal and create a database (preferably use the name varnan).I
 | FORWARDEDTO | char(120) | YES  |     | NULL              |                |
 | DATETIMEID  | timestamp | NO   |     | CURRENT_TIMESTAMP |                |
 +-------------+-----------+------+-----+-------------------+----------------+
-Change the value of the username,database and password in the file database.py and viewer.php to the configuration that suits your system.
-Start the upload script by typing : python upload.py 
-Start the task allocation script by typing: python allocate.py
-Start the ftp server by going in the images folder(cd images) and type: python -m SimpleHTTPServer 8070
-Put the file viewer.php in the appropriate LAMP folder(/var/www/) and use view via your browser to track the complaints.
+
+"""------create table REPORTS( ID int NOT NULL auto_increment, DESCRIPTION TEXT NOT NULL, GPS varchar(200), USERID varchar(200), STATUS varchar(60), FORWARDEDTO varchar(120), DATETIMEID TIMESTAMP DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (ID));------------"""
+
+***open up port 8080,8070,8090 by 
+sudo iptables -A INPUT -p tcp --dport 8070 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8090 -j ACCEPT
+Change to root user sudo su
+Save the iptable configuration by: iptables-save > /etc/iptables.rules
+***
+
+
+
+
+5.Change the value of the username,database and password in the file database.py and viewer.php to the configuration that suits your system.
+
+6.Start the upload script by typing : python upload.py 
+
+7.Start the task allocation script by typing: python allocate.py
+
+8.Start the ftp server by going in the images folder(cd images) and type: python -m SimpleHTTPServer 8070
+
+9.Put the file viewer.php in the appropriate LAMP folder(/var/www/) and use view via your browser to track the complaints.
+
+----------------------------------------------------------------------------------------------------------------------------
+===If installed then just start three servers in varnan folder by:
+python upload.py
+python allocate.py
+cd images/
+python -m SimpleHTTPServer 8070
