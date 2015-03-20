@@ -106,7 +106,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public void getTask() {
-        HttpPost post = new HttpPost("http://5.175.131.243:8090/");
+        HttpPost post = new HttpPost("http://serverip:8090/");
         HttpClient client = new DefaultHttpClient();
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
         nameValuePairs.add(new BasicNameValuePair("abhay447"," "));
@@ -149,7 +149,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             fixme = Mapper.addMarker(new MarkerOptions().position(loc).title("fix me"));
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(loc, 16);
             Mapper.animateCamera(update);
-            new LoadImage().execute("http://5.175.131.243:8070/" + ID + ".png");
+            new LoadImage().execute("http://serverip:8070/" + ID + ".png");
 
         }
     }
@@ -192,7 +192,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public void FinishTask(String ID) {
-        HttpPost post = new HttpPost("http://5.175.131.243:8080/");
+        HttpPost post = new HttpPost("http://serverip:8080/");
         HttpClient client = new DefaultHttpClient();
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
         nameValuePairs.add(new BasicNameValuePair("UPDATE REPORTS SET STATUS='COMPLETED' WHERE ID='"+ID+"'"," "));
