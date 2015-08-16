@@ -1,4 +1,0 @@
-1.Start the upload script by typing : python upload.py
-2.Start the task allocation script by typing: python allocate.py
-.Start the ftp server by going in the images folder(cd images) and type: python -m SimpleHTTPServer 8070
-
